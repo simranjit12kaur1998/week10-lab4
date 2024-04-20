@@ -1,0 +1,30 @@
+<!-- updatefeedback.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Update page" }) %>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Feedback</h2>
+      <form action="/single-feedback/<%= feedback._id %>?_method=PUT" method="POST">
+        <label>Sender:</label>
+        <input type="text" value="<%= feedback.sender %>" id="sender" name="sender" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required><%= feedback.message %></textarea>
+
+        <label for="rating">rating:</label>
+        <input type="number" id="rating" name="rating" required value="<%= feedback.rating %>" />
+
+      
+
+
+        <button type="submit">Update Feedback</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
